@@ -772,6 +772,74 @@ window.open(
   from{opacity:0}
   to{opacity:1}
 }
+
+/* ================== FIX GENERAL VIP ================== */
+
+/* 1️⃣ EVITAR QUE LOS VIP TAPEN CONTENIDO */
+.vip-badge{
+  z-index:50;              /* antes estaba muy alto */
+  pointer-events:auto;
+}
+
+/* Si tienes modales, estos sí deben ir arriba */
+.vip-modal{
+  z-index:9999;
+}
+
+/* 2️⃣ BRILLO NO SE SALE DE LA BURBUJA */
+.vip-badge{
+  overflow:hidden;         /* CLAVE */
+}
+
+.ultra-shine{
+  inset:0;
+  width:100%;
+  height:100%;
+  border-radius:22px;
+}
+
+/* 3️⃣ TEXTO NEGRO OSCURO PÁLIDO */
+.vip-title,
+.vip-sub,
+.vip-card,
+.vip-card h2,
+.vip-card ul,
+.vip-card li{
+  color:#1f1f1f !important;   /* negro oscuro elegante */
+}
+
+/* 4️⃣ ELIMINAR ZOOM / GOLPE FEO */
+.vip-card,
+.vip-card h2{
+  animation:none !important;
+  transform:none !important;
+}
+
+/* Entrada limpia del modal (solo fade) */
+.vip-modal{
+  animation: vipFade .2s ease;
+}
+
+@keyframes vipFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* 5️⃣ ULTRA SIGUE TENIENDO +70% ANIMACIÓN PERO CONTROLADA */
+.vip-ultra{
+  animation:
+    float 1.1s ease-in-out infinite,
+    ultraPulse 1s ease-in-out infinite;
+}
+
+@keyframes ultraPulse{
+  0%,100%{
+    box-shadow:0 0 25px rgba(255,255,255,.6);
+  }
+  50%{
+    box-shadow:0 0 60px rgba(255,255,255,.9);
+  }
+}
 </style>
 
 <script>
