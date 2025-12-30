@@ -569,6 +569,8 @@ window.open(
 
 
 </script>
+
+
 <!-- ================== BURBUJAS VIP ================== -->
 
 <div class="vip-badge vip-bronce" onclick="openVIP('vip1')">
@@ -641,7 +643,7 @@ window.open(
 .vip-badge{
   position:fixed;
   right:15px;
-  padding:20px 24px;
+  padding:16px 20px;
   border-radius:22px;
   text-align:center;
   cursor:pointer;
@@ -652,8 +654,8 @@ window.open(
   z-index:1000;
 }
 
-.vip-title{font-size:24px;font-weight:900;} /* +40% */
-.vip-sub{font-size:14px;font-weight:bold;} /* +40% */
+.vip-title{font-size:20px;font-weight:900;} /* +20% */
+.vip-sub{font-size:12px;font-weight:bold;} /* +20% */
 
 .vip-bronce{top:70px;background:linear-gradient(135deg,#ff8c1a,#7a3e00);}
 .vip-gold{top:160px;background:linear-gradient(135deg,#fff700,#9e9e9e);}
@@ -702,14 +704,14 @@ window.open(
 .vip-card{
   width:94%;
   max-width:420px;
-  padding:30px;
+  padding:26px;
   border-radius:22px;
   color:#fff;
   animation: pop .4s ease;
 }
 
-.vip-card h2{font-size:26px;} /* +40% */
-.vip-card ul{font-size:20px;} /* +40% */
+.vip-card h2{font-size:22px;} /* +20% */
+.vip-card ul{font-size:17px;} /* +20% */
 
 .bronce-card{
   background:linear-gradient(135deg,#b87333,#5c2c00);
@@ -746,19 +748,19 @@ window.open(
 /* ================== BOTONES ================== */
 .vip-card button{
   width:100%;
-  padding:18px;
+  padding:15px;
   margin-top:14px;
   border:none;
   border-radius:16px;
   font-weight:bold;
-  font-size:20px; /* +40% */
+  font-size:17px; /* +20% */
   cursor:pointer;
   animation: btnPulse 2s infinite;
 }
 
 @keyframes btnPulse{
   0%,100%{transform:scale(1)}
-  50%{transform:scale(1.06)}
+  50%{transform:scale(1.05)}
 }
 
 .vip-card button:first-of-type{
@@ -790,6 +792,8 @@ function vipWhats(vip,precio){
   window.open(`https://wa.me/50373826693?text=${msg}`,"_blank");
 }
 </script>
+
+
 
 </body>
 </html>
@@ -1344,326 +1348,6 @@ body{
   box-shadow:0 0 22px rgba(255,255,255,.2);
 }
 </style>
-
-<!-- ================= BURBUJA COMPRA DERECHOS ================= -->
-
-<style>
-.buy-bubble{
-position:fixed;
-bottom:20px;
-right:20px;
-background:linear-gradient(135deg,#00c6ff,#0072ff);
-padding:18px;
-border-radius:30px;
-max-width:260px;
-box-shadow:0 0 25px rgba(0,200,255,.7);
-animation:bounce 2s infinite alternate;
-cursor:pointer;
-z-index:9999;
-font-family:Poppins,sans-serif;
-}
-
-.buy-bubble h4,.buy-bubble p{
-margin:0;
-color:#fff;
-}
-
-.modal{
-position:fixed;
-top:0;left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.75);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:10000;
-}
-
-.modal-content{
-background:#111;
-padding:25px;
-border-radius:22px;
-max-width:90%;
-position:relative;
-animation:zoomIn .5s ease;
-color:#fff;
-box-shadow:0 0 30px rgba(0,255,255,.4);
-}
-
-.close-btn{
-position:absolute;
-top:10px;
-right:14px;
-font-size:1.4rem;
-cursor:pointer;
-color:#ff6f61;
-}
-
-.buy-btn{
-background:gold;
-color:#000;
-margin-top:15px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:16px;
-font-weight:800;
-font-size:1.1rem;
-cursor:pointer;
-}
-
-.loading{
-margin-top:12px;
-font-weight:800;
-color:#00ffe5;
-display:none;
-text-align:center;
-}
-
-@keyframes bounce{to{transform:translateY(-12px)}}
-@keyframes zoomIn{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
-</style>
-
-<!-- ========= BURBUJA COMPRA DERECHOS (GRIS + VERDE) ========= -->
-
-<style>
-.buy-bubble{
-position:fixed;
-bottom:120px; /* ⬆️ más arriba, no tapa nada */
-right:16px;
-background:linear-gradient(135deg,#2f2f2f,#3a3a3a);
-padding:16px 18px;
-border-radius:30px;
-max-width:260px;
-box-shadow:0 0 25px rgba(0,255,120,.5);
-animation:bounce 2s infinite alternate;
-cursor:pointer;
-z-index:9999;
-font-family:Poppins,sans-serif;
-}
-
-.buy-bubble h4{
-margin:0;
-color:#00ff88;
-font-size:1rem;
-}
-
-.buy-bubble p{
-margin:0;
-font-size:.85rem;
-color:#dcdcdc;
-}
-
-/* MODAL */
-.modal{
-position:fixed;
-top:0;left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.8);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:10000;
-}
-
-.modal-content{
-background:#1f1f1f;
-padding:25px;
-border-radius:22px;
-max-width:90%;
-position:relative;
-animation:zoomIn .5s ease;
-color:#eaeaea;
-box-shadow:0 0 30px rgba(0,255,120,.4);
-}
-
-.close-btn{
-position:absolute;
-top:10px;
-right:14px;
-font-size:1.4rem;
-cursor:pointer;
-color:#ff5c5c;
-}
-
-.buy-btn{
-background:linear-gradient(135deg,#00ff88,#00cc6a);
-color:#003320;
-margin-top:15px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:16px;
-font-weight:800;
-font-size:1.1rem;
-cursor:pointer;
-}
-
-.loading{
-margin-top:12px;
-font-weight:800;
-color:#00ff88;
-display:none;
-text-align:center;
-}
-
-@keyframes bounce{to{transform:translateY(-10px)}}
-@keyframes zoomIn{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
-</style>
-
-<!-- ========= BURBUJA COMPRA DERECHOS (GRIS + VERDE) ========= -->
-
-
-<style>
-.buy-bubble{
-position:fixed;
-bottom:120px; /* ⬆️ más arriba, no tapa nada */
-right:16px;
-background:linear-gradient(135deg,#2f2f2f,#3a3a3a);
-padding:16px 18px;
-border-radius:30px;
-max-width:260px;
-box-shadow:0 0 25px rgba(0,255,120,.5);
-animation:bounce 2s infinite alternate;
-cursor:pointer;
-z-index:9999;
-font-family:Poppins,sans-serif;
-}
-
-.buy-bubble h4{
-margin:0;
-color:#00ff88;
-font-size:1rem;
-}
-
-.buy-bubble p{
-margin:0;
-font-size:.85rem;
-color:#dcdcdc;
-}
-
-/* MODAL */
-.modal{
-position:fixed;
-top:0;left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.8);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:10000;
-}
-
-.modal-content{
-background:#1f1f1f;
-padding:25px;
-border-radius:22px;
-max-width:90%;
-position:relative;
-animation:zoomIn .5s ease;
-color:#eaeaea;
-box-shadow:0 0 30px rgba(0,255,120,.4);
-}
-
-.close-btn{
-position:absolute;
-top:10px;
-right:14px;
-font-size:1.4rem;
-cursor:pointer;
-color:#ff5c5c;
-}
-
-.buy-btn{
-background:linear-gradient(135deg,#00ff88,#00cc6a);
-color:#003320;
-margin-top:15px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:16px;
-font-weight:800;
-font-size:1.1rem;
-cursor:pointer;
-}
-
-.loading{
-margin-top:12px;
-font-weight:800;
-color:#00ff88;
-display:none;
-text-align:center;
-}
-
-@keyframes bounce{to{transform:translateY(-10px)}}
-@keyframes zoomIn{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
-</style>
-
-<!-- BURBUJA -->
-<div class="buy-bubble" onclick="openBuyModal()">
-<h4>🗨️ Comprar ©️ Derechos </h4>
-<p>Propiedad total + ganancias</p>
-</div>
-
-<!-- MODAL -->
-<div class="modal" id="buyModal">
-<div class="modal-content">
-<div class="close-btn" onclick="closeBuyModal()">✕</div>
-
-<h3 style="color:#00ff88">Comprar derechos ©️</h3>
-<p>
-Obtendrás <b>TODOS los derechos ©️</b> de la página,
-incluyendo ganancias y propiedad total.
-</p>
-<p><b>Precio: $699.99 DLS</b></p>
-
-<button class="buy-btn" onclick="buyRights()">> Comprar <</button>
-<div class="loading" id="buyLoading">Cargando.</div>
-</div>
-</div>
-
-<!-- SONIDOS -->
-<audio id="soundOpen" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3"></audio>
-<audio id="soundClick" src="https://assets.mixkit.co/sfx/preview/mixkit-confirmation-tone-2867.mp3"></audio>
-<audio id="soundClose" src="https://assets.mixkit.co/sfx/preview/mixkit-click-error-1110.mp3"></audio>
-
-<script>
-function openBuyModal(){
-document.getElementById("soundOpen").play();
-document.getElementById("buyModal").style.display="flex";
-}
-
-function closeBuyModal(){
-document.getElementById("soundClose").play();
-document.getElementById("buyModal").style.display="none";
-}
-
-function buyRights(){
-document.getElementById("soundClick").play();
-const loading=document.getElementById("buyLoading");
-loading.style.display="block";
-
-let dots=1;
-const anim=setInterval(()=>{
-loading.innerText="Cargando"+".".repeat(dots);
-dots=dots<3?dots+1:1;
-},700);
-
-setTimeout(()=>{
-clearInterval(anim);
-window.open(
-"https://wa.me/50379197720?text=Quiero%20comprar%20Todos%20los%20derechos%20de%20la%20página%20por%20$699.99",
-"_blank"
-);
-},5000);
-}
-</script>
-
-<!-- ========= FIN BURBUJA ========= -->
-
 </head>
 <body>
 <!-- ===== POINTS HUD ===== -->
