@@ -570,9 +570,6 @@ window.open(
 
 </script>
 
-
-
-
 <!-- ================== BURBUJAS VIP ================== -->
 
 <div class="vip-badge vip-bronce" onclick="openVIP('vip1')">
@@ -592,6 +589,7 @@ window.open(
 </div>
 
 <!-- ================== MODALES ================== -->
+
 <div id="vip1" class="vip-modal">
   <div class="vip-card bronce-card">
     <h2>Beneficios del V.I.P REGULAR</h2>
@@ -646,15 +644,15 @@ window.open(
   border-radius:22px;
   text-align:center;
   cursor:pointer;
-  z-index:1000;
   animation: float 2.2s ease-in-out infinite;
-  overflow:hidden; /* 🔒 evita que el brillo se salga */
+  overflow:hidden;
+  z-index:50;
 }
 
-/* TEXTO OSCURO PÁLIDO */
+/* Texto oscuro pálido */
 .vip-title,
 .vip-sub{
-  color:#1e1e1e;
+  color:#1f1f1f;
 }
 
 .vip-title{font-size:20px;font-weight:900;}
@@ -677,14 +675,15 @@ window.open(
   top:250px;
   background:linear-gradient(135deg,#2e2e2e,#4a4a4a,#ffffff,#3a3a3a);
   animation:
-    float 1.2s ease-in-out infinite,
-    ultraPulse 1s infinite;
+    float 1.1s ease-in-out infinite,
+    ultraPulse 1s ease-in-out infinite;
 }
 
-/* BRILLO CONTROLADO */
+/* Brillo ULTRA controlado */
 .ultra-shine{
   position:absolute;
   inset:0;
+  border-radius:22px;
   background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
   animation: shine 1s infinite;
   pointer-events:none;
@@ -699,6 +698,8 @@ window.open(
   backdrop-filter:blur(6px);
   justify-content:center;
   align-items:center;
+  z-index:9999;
+  animation: vipFade .2s ease;
 }
 
 /* ================== TARJETAS ================== */
@@ -707,18 +708,10 @@ window.open(
   max-width:420px;
   padding:26px;
   border-radius:22px;
-  color:#1e1e1e; /* TEXTO OSCURO */
-  animation: fadeIn .25s ease; /* ❌ sin zoom feo */
+  color:#1f1f1f;
 }
 
-.vip-card h2{
-  margin-bottom:10px;
-}
-
-.vip-card ul{
-  font-size:16px;
-}
-
+/* COLORES ORIGINALES DE BENEFICIOS */
 .bronce-card{
   background:linear-gradient(135deg,#c68642,#e0a96d,#8c4a1f);
 }
@@ -730,6 +723,9 @@ window.open(
 .ultra-card{
   background:linear-gradient(135deg,#e5e5e5,#ffffff,#cfcfcf);
 }
+
+.vip-card h2{margin-bottom:10px;}
+.vip-card ul{font-size:16px;}
 
 /* ================== BOTONES ================== */
 .vip-card button{
@@ -764,81 +760,13 @@ window.open(
 }
 
 @keyframes ultraPulse{
-  0%,100%{box-shadow:0 0 30px #fff}
-  50%{box-shadow:0 0 80px #fff}
-}
-
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
-}
-
-/* ================== FIX GENERAL VIP ================== */
-
-/* 1️⃣ EVITAR QUE LOS VIP TAPEN CONTENIDO */
-.vip-badge{
-  z-index:50;              /* antes estaba muy alto */
-  pointer-events:auto;
-}
-
-/* Si tienes modales, estos sí deben ir arriba */
-.vip-modal{
-  z-index:9999;
-}
-
-/* 2️⃣ BRILLO NO SE SALE DE LA BURBUJA */
-.vip-badge{
-  overflow:hidden;         /* CLAVE */
-}
-
-.ultra-shine{
-  inset:0;
-  width:100%;
-  height:100%;
-  border-radius:22px;
-}
-
-/* 3️⃣ TEXTO NEGRO OSCURO PÁLIDO */
-.vip-title,
-.vip-sub,
-.vip-card,
-.vip-card h2,
-.vip-card ul,
-.vip-card li{
-  color:#1f1f1f !important;   /* negro oscuro elegante */
-}
-
-/* 4️⃣ ELIMINAR ZOOM / GOLPE FEO */
-.vip-card,
-.vip-card h2{
-  animation:none !important;
-  transform:none !important;
-}
-
-/* Entrada limpia del modal (solo fade) */
-.vip-modal{
-  animation: vipFade .2s ease;
+  0%,100%{box-shadow:0 0 25px rgba(255,255,255,.6)}
+  50%{box-shadow:0 0 60px rgba(255,255,255,.9)}
 }
 
 @keyframes vipFade{
   from{opacity:0}
   to{opacity:1}
-}
-
-/* 5️⃣ ULTRA SIGUE TENIENDO +70% ANIMACIÓN PERO CONTROLADA */
-.vip-ultra{
-  animation:
-    float 1.1s ease-in-out infinite,
-    ultraPulse 1s ease-in-out infinite;
-}
-
-@keyframes ultraPulse{
-  0%,100%{
-    box-shadow:0 0 25px rgba(255,255,255,.6);
-  }
-  50%{
-    box-shadow:0 0 60px rgba(255,255,255,.9);
-  }
 }
 </style>
 
@@ -847,15 +775,18 @@ function openVIP(id){
   document.body.style.overflow="hidden";
   document.getElementById(id).style.display="flex";
 }
+
 function closeVIP(id){
   document.body.style.overflow="";
   document.getElementById(id).style.display="none";
 }
+
 document.querySelectorAll('.vip-modal').forEach(m=>{
   m.onclick=e=>{
     if(e.target===m) closeVIP(m.id);
   }
 });
+
 function vipWhats(vip,precio){
   const msg = encodeURIComponent(`Hola, quiero comprar el ${vip} por ${precio}`);
   window.open(`https://wa.me/50373826693?text=${msg}`,"_blank");
