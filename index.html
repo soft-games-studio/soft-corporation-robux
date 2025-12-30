@@ -570,7 +570,6 @@ window.open(
 
 </script>
 
-
 <!-- ================== BURBUJAS VIP ================== -->
 
 <div class="vip-badge vip-bronce" onclick="openVIP('vip1')">
@@ -589,16 +588,15 @@ window.open(
   <div class="ultra-shine"></div>
 </div>
 
-<!-- ================== MODALES ================== -->
-
+<!-- ================== MODAL VIP REGULAR ================== -->
 <div id="vip1" class="vip-modal">
-  <div class="vip-card bronce-card">
-    <h2>Beneficios del V.I.P REGULAR</h2>
-    <ul class="vip-benefits">
+  <div class="vip-card bronce-card anim-card">
+    <h2>Beneficios del V.I.P REGULAR:</h2>
+    <ul>
       <li>• Precios reducidos en 40, 80 y 400 robux</li>
       <li>• 5 Giros Luck Spin 🍀</li>
-      <li>• Acceso parcial al Github</li>
-      <li>• Suerte ×3</li>
+      <li>• Acceso parcial al código Github</li>
+      <li>• Suerte ×3 🍀</li>
       <li>• Giros cada 12 horas</li>
     </ul>
     <button onclick="vipWhats('V.I.P REGULAR','$3.99 × 15 Días')">$3.99 × 15 Días</button>
@@ -606,14 +604,15 @@ window.open(
   </div>
 </div>
 
+<!-- ================== MODAL VIP SUPER ================== -->
 <div id="vip2" class="vip-modal">
-  <div class="vip-card gold-card">
-    <h2>Beneficios del V.I.P SUPER</h2>
-    <ul class="vip-benefits">
-      <li>• Precios reducidos en robux grandes</li>
+  <div class="vip-card gold-card anim-card anim-gold">
+    <h2>Beneficios del V.I.P SUPER:</h2>
+    <ul>
+      <li>• Precios reducidos en 400, 500, 740 y 800 robux</li>
       <li>• 10 Giros Luck Spin 🍀</li>
-      <li>• Acceso casi total al Github</li>
-      <li>• Suerte ×6</li>
+      <li>• Acceso casi total al código Github</li>
+      <li>• Suerte ×6 🍀</li>
       <li>• Giros cada 6 horas</li>
     </ul>
     <button onclick="vipWhats('V.I.P SUPER','$6.99 × Mes')">$6.99 × Mes</button>
@@ -621,15 +620,17 @@ window.open(
   </div>
 </div>
 
+<!-- ================== MODAL VIP ULTRA ================== -->
 <div id="vip3" class="vip-modal">
-  <div class="vip-card ultra-card">
-    <h2>Beneficios del V.I.P ULTRA</h2>
-    <ul class="vip-benefits">
-      <li>• Descuentos máximos</li>
-      <li>• Acceso completo al Github</li>
-      <li>• 100 Giros Luck Spin</li>
-      <li>• Suerte ×12</li>
+  <div class="vip-card ultra-card anim-card anim-ultra">
+    <h2>Beneficios del V.I.P ULTRA:</h2>
+    <ul>
+      <li>• Máximos descuentos en todos los robux</li>
+      <li>• Acceso COMPLETO al código Github</li>
+      <li>• 100 Giros Luck Spin 🍀</li>
+      <li>• Suerte ×12 🍀</li>
       <li>• Giros cada 2 horas</li>
+      <li>• Soporte corporativo prioritario</li>
     </ul>
     <button onclick="vipWhats('V.I.P ULTRA','$9.99 × Mes')">$9.99 × Mes</button>
     <button class="close" onclick="closeVIP('vip3')">Cerrar</button>
@@ -645,47 +646,75 @@ window.open(
   border-radius:22px;
   text-align:center;
   cursor:pointer;
-  z-index:50;
   animation: float 2.2s ease-in-out infinite;
-  overflow:hidden;
+  z-index:1000;
 }
 
+/* TEXTO NEGRO EN BURBUJAS */
 .vip-title,
 .vip-sub{
-  color:#1f1f1f;
+  color:#111;
 }
 
 .vip-title{font-size:20px;font-weight:900;}
 .vip-sub{font-size:12px;font-weight:bold;}
 
-/* REGULAR COBRE */
+/* ===== VIP REGULAR – COBRE BRONCE ===== */
 .vip-bronce{
   top:70px;
   background:linear-gradient(135deg,#b87333,#ffb347,#7a3e00);
+  box-shadow:0 0 25px #b87333;
 }
 
-/* SUPER DORADO + GRIS */
+/* ===== VIP SUPER – DORADO + GRIS ===== */
 .vip-gold{
   top:160px;
-  background:linear-gradient(135deg,#ffd700,#fff4b0,#9e9e9e,#ffd700);
+  background:linear-gradient(135deg,#ffd700,#fff9c4,#9e9e9e,#ffd700,#bfa100);
+  box-shadow:0 0 35px gold;
 }
 
-/* ULTRA GRIS + BLANCO (+70%) */
+/* ===== VIP ULTRA – GRIS + BLANCO ===== */
 .vip-ultra{
   top:250px;
-  background:linear-gradient(135deg,#2e2e2e,#4a4a4a,#ffffff,#3a3a3a);
+  background:linear-gradient(135deg,#2e2e2e,#4a4a4a,#ffffff,#5a5a5a,#1e1e1e);
   animation:
-    float 1.1s ease-in-out infinite,
-    ultraPulse 1s ease-in-out infinite;
+    float 1.3s ease-in-out infinite,
+    ultraPulse 0.9s infinite,
+    ultraSpin 3s linear infinite;
+  box-shadow:0 0 60px #fff;
+
+  /* 🔒 FIX CLAVE */
+  overflow:hidden;
 }
 
+/* ================== BRILLO ULTRA ================== */
 .ultra-shine{
   position:absolute;
   inset:0;
-  border-radius:22px;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
-  animation: shine 1s infinite;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.9),transparent);
+  animation: shine .8s infinite;
   pointer-events:none;
+  border-radius:22px; /* 🔒 respeta borde */
+}
+
+@keyframes shine{
+  from{transform:translateX(-100%)}
+  to{transform:translateX(100%)}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+@keyframes ultraPulse{
+  0%,100%{box-shadow:0 0 60px #fff}
+  50%{box-shadow:0 0 140px #fff}
+}
+
+@keyframes ultraSpin{
+  from{filter:hue-rotate(0deg)}
+  to{filter:hue-rotate(20deg)}
 }
 
 /* ================== MODAL ================== */
@@ -706,80 +735,76 @@ window.open(
   max-width:420px;
   padding:26px;
   border-radius:22px;
-  color:#1f1f1f;
-  animation: fadeIn .25s ease;
+  color:#fff;
+  animation: pop .4s ease;
 }
 
-.vip-card h2{
-  margin-bottom:12px;
-}
+.vip-card h2{font-size:22px;}
+.vip-card ul{font-size:17px;}
 
-/* BENEFICIOS — DISEÑO ORIGINAL (SIN ZOOM FEO) */
-.vip-benefits li{
-  padding:8px 10px;
-  margin-bottom:6px;
-  border-radius:10px;
-  background:rgba(255,255,255,.35);
-  transition:background .25s ease;
-}
-
-.vip-benefits li:hover{
-  background:rgba(255,255,255,.6);
-}
-
-/* COLORES TARJETAS */
 .bronce-card{
-  background:linear-gradient(135deg,#c68642,#e0a96d,#8c4a1f);
+  background:linear-gradient(135deg,#8c4a1f,#c68642,#5c2c00);
+  border:4px solid #ffb347;
 }
 
 .gold-card{
-  background:linear-gradient(135deg,#ffd700,#fff176,#9e9e9e);
+  background:linear-gradient(135deg,#ffd700,#fff176,#9e9e9e,#ffe066,#bfa100);
+  border:4px solid #fff176;
+  box-shadow:0 0 55px gold;
 }
 
 .ultra-card{
-  background:linear-gradient(135deg,#e5e5e5,#ffffff,#cfcfcf);
+  background:linear-gradient(135deg,#1f1f1f,#3a3a3a,#ffffff,#4d4d4d,#121212);
+  border:4px solid #ffffff;
+  box-shadow:0 0 90px #fff;
+}
+
+/* ================== ANIMACIONES TARJETAS ================== */
+.anim-card{animation: pop .35s ease, cardFloat 3s infinite;}
+.anim-gold{animation: pop .35s ease, glowGold 2.2s infinite;}
+.anim-ultra{animation: pop .35s ease, ultraGlow 1.4s infinite;}
+
+@keyframes cardFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+@keyframes glowGold{
+  0%,100%{box-shadow:0 0 30px gold}
+  50%{box-shadow:0 0 70px #fff176}
+}
+
+@keyframes ultraGlow{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+
+@keyframes pop{
+  from{transform:scale(.9);opacity:0}
+  to{transform:scale(1);opacity:1}
 }
 
 /* ================== BOTONES ================== */
 .vip-card button{
   width:100%;
-  padding:14px;
+  padding:15px;
   margin-top:14px;
   border:none;
-  border-radius:14px;
+  border-radius:16px;
   font-weight:bold;
+  font-size:17px;
   cursor:pointer;
 }
 
 .vip-card button:first-of-type{
-  background:#00e676;
+  background:linear-gradient(135deg,#00ff88,#00c853);
+  box-shadow:0 0 25px #00ff88;
   color:#000;
 }
 
 .vip-card button.close{
   background:#444;
   color:#fff;
-}
-
-/* ================== ANIMACIONES ================== */
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
-
-@keyframes shine{
-  from{transform:translateX(-100%)}
-  to{transform:translateX(100%)}
-}
-
-@keyframes ultraPulse{
-  0%,100%{box-shadow:0 0 25px rgba(255,255,255,.6)}
-  50%{box-shadow:0 0 60px rgba(255,255,255,.9)}
-}
-
-@keyframes fadeIn{
-  from{opacity:0}
-  to{opacity:1}
 }
 </style>
 
@@ -788,22 +813,26 @@ function openVIP(id){
   document.body.style.overflow="hidden";
   document.getElementById(id).style.display="flex";
 }
+
 function closeVIP(id){
   document.body.style.overflow="";
   document.getElementById(id).style.display="none";
 }
+
 document.querySelectorAll('.vip-modal').forEach(m=>{
-  m.onclick=e=>{
-    if(e.target===m) closeVIP(m.id);
-  }
+  m.addEventListener('click',e=>{
+    if(e.target===m){
+      document.body.style.overflow="";
+      m.style.display="none";
+    }
+  });
 });
+
 function vipWhats(vip,precio){
   const msg = encodeURIComponent(`Hola, quiero comprar el ${vip} por ${precio}`);
   window.open(`https://wa.me/50373826693?text=${msg}`,"_blank");
 }
 </script>
-
-
 
 
 </body>
